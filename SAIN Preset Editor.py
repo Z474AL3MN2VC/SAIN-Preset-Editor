@@ -2,9 +2,10 @@ import os
 import re
 import json
 
-"""
-### Get the file names and locations to work with. ###
 # TODO: Have the script prompt for the name of the preset to modify.
+"""
+This is all trash...
+### Get the file names and locations to work with. ###
 
 # Get an array of the default bot files to modify including the file locations.
 myBotFiles = []
@@ -34,12 +35,10 @@ for personalityNames in myPersonalityFiles:
     defaultPersonalityNames.append(extractPersonalityName.group(1))    
 """
 
-
 ### Hard code stuff for now. ### 
 myPresetDir = "./Presets/AiSB/BotSettings/"
 defaultBotDir = "./Default Bot Config Values/"
 fileExtension = ".json"
-
 
 ### Define bot tiers. ###
 
@@ -51,7 +50,6 @@ tierPMC = ["Bear", "Usec"]
 tierElite = ["Bloodhound", "Cultist", "Gluhar Guard Assault", "Gluhar Guard Scout", "Gluhar Guard Security", "Gluhar Guard Snipe", "Kaban Guard Close 1", "Kaban Guard Close 2", "Kaban Guard", "Kaban Sniper", "Kolontay Assault", "Kolontay Security", "Raider", "Rashala Guard", "Rogue", "Sanitar Guard", "Shturman Guard", "Tagilla Guard"]
 # Boss Tier: Bosses
 tierBoss = ["BigPipe","BirdEye","Cultist Priest", "Gluhar", "Kaban", "Killa", "Knight", "Kolontay", "Partisan", "Rashala", "Sanitar", "Shturman", "Tagilla"]
-
 
 ### Prompt for user input. ###
 
@@ -70,8 +68,8 @@ else:
     print("ERROR")
     exit()
 
-# Select the difficulty.
-# Universal difficulty level for all Elite and Boss types.
+# Select the difficulty to edit.
+# I am defining a universal difficulty level for all Elite and Boss types.
 if theTier in (tierElite, tierBoss):
     print("Universal difficulty level for all Elite and Boss types.")
 else:
@@ -89,7 +87,7 @@ else:
         print("ERROR")
         exit()
 
-# Select the property types.
+# Select the property type to edit.
 print("Select Property Type: Core, Difficulty, Grenade")
 thePropertyType = input()
 if thePropertyType == "Core":
@@ -104,10 +102,12 @@ elif thePropertyType == "Grenade":
 else:
     print("ERROR")
     exit()
+
+# Select the property to edit.
 theProperty = input()
 
 # Get the default value for the selected property.
-# No default value exists for Difficulty object, print the current values instead.
+# No default value exists for Difficulty objects. Print the current preset values instead.
 for filetoEdit in theTier:
     if thePropertyType != "Difficulty":
         theFileName = defaultBotDir+filetoEdit+fileExtension
@@ -120,15 +120,15 @@ for filetoEdit in theTier:
             print(data["Settings"]["impossible"][thePropertyType][theProperty])
         else:
             print(data["Settings"][theDifficulty][thePropertyType][theProperty])
+
 # Set the property value.
 print("Enter your modified value.")
 theValue = input()
 theValue = float(theValue)
 
-
 ### Proceed to modify files. ###
 
-# Iterate through the tier files.
+# Iterate through the bot files.
 for filetoEdit in theTier:
     theFileName = myPresetDir+filetoEdit+fileExtension
     with open(theFileName, "r") as file:
@@ -160,8 +160,10 @@ for filetoEdit in theTier:
     # Save files.
     with open (theFileName, "w") as file:
         json.dump(data, file, indent=2)
-        
 
+# TODO: Add the ability to edit personality files.
+
+"""
 ### The bot properties to adjust. ###
 
 # botName.json - Settings.(easy|normal|hard|impossible).Difficulty.$theProperty
@@ -189,3 +191,4 @@ for filetoEdit in theTier:
 # personalityName.json
 #   Assignment.CanBeRandomlyAssigned true/false
 #   Assignment.RandomlyAssignedChance float
+"""
