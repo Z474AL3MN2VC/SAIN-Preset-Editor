@@ -49,7 +49,7 @@ tierScav = ["Crazy Scav Event", "Scav Group", "Scav", "Tagged and Cursed Scav"]
 tierPMC = ["Bear", "Usec"]
 # High Tier: Rogues, Raiders, Boss Guards
 tierElite = ["Bloodhound", "Cultist", "Gluhar Guard Assault", "Gluhar Guard Scout", "Gluhar Guard Security", "Gluhar Guard Snipe", "Kaban Guard Close 1", "Kaban Guard Close 2", "Kaban Guard", "Kaban Sniper", "Kolontay Assault", "Kolontay Security", "Raider", "Rashala Guard", "Rogue", "Sanitar Guard", "Shturman Guard", "Tagilla Guard"]
-# High Tier: Bosses
+# Boss Tier: Bosses
 tierBoss = ["BigPipe","BirdEye","Cultist Priest", "Gluhar", "Kaban", "Killa", "Knight", "Kolontay", "Partisan", "Rashala", "Sanitar", "Shturman", "Tagilla"]
 
 
