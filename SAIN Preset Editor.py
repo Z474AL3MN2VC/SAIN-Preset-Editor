@@ -1,7 +1,6 @@
 import os
 import re
 import json
-from glob import glob
 
 """
 ### Get the file names and locations to work with. ###
